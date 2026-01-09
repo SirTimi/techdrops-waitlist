@@ -5,6 +5,32 @@
 import { useState } from 'react';
 import WaitlistForm from './components/WaitlistForm';
 
+export const metadata = {
+  title: 'TechDrops - Learn Tech Without Learning to Code',
+  description: 'Personalized learning paths for non-technical founders scaling their business. Understand APIs, hiring, vendor evaluation, and more.',
+  openGraph: {
+    title: 'TechDrops - Learn Tech Without Learning to Code',
+    description: 'Personalized learning paths for non-technical founders scaling their business.',
+    url: 'https://techdrops-waitlist.vercel.app',
+    siteName: 'TechDrops',
+    images: [
+      {
+        url: '/api/og',
+        width: 1200,
+        height: 630,
+        alt: 'TechDrops',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'TechDrops - Learn Tech Without Learning to Code',
+    description: 'Personalized learning paths for non-technical founders scaling their business.',
+    images: ['/api/og'],
+  },
+};
+
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -33,7 +59,7 @@ export default function Home() {
       <header className="border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="TechDrops" className="h-15 w-15" />
+            <img src="/logo.png" alt="TechDrops" className="h-8 w-8" />
             <h1 className="text-2xl font-bold text-teal-600">TechDrops</h1>
           </div>
           <a
@@ -52,8 +78,8 @@ export default function Home() {
           <div className="space-y-8">
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Learn Tech Without <br/>
-                <span className="text-teal-600"> Learning To Code.</span>
+                Learn Tech.<br />
+                <span className="text-teal-600">Not Code.</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
                 Personalized learning paths designed for non-technical founders who need to make better decisions about technology.
