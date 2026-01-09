@@ -1,13 +1,12 @@
-// app/page.tsx
+// src/app/page.tsx
 
-'use client';
+import type { Metadata } from 'next'
+import WaitlistForm from './components/WaitlistForm'
 
-import { useState } from 'react';
-import WaitlistForm from './components/WaitlistForm';
-
-export const metadata = {
+export const metadata: Metadata = {
   title: 'TechDrops - Learn Tech Without Learning to Code',
-  description: 'Personalized learning paths for non-technical founders scaling their business. Understand APIs, hiring, vendor evaluation, and more.',
+  description:
+    "Personalized learning paths for non-technical founders scaling their business. Understand APIs, hiring, vendor evaluation, and more.",
   openGraph: {
     title: 'TechDrops - Learn Tech Without Learning to Code',
     description: 'Personalized learning paths for non-technical founders scaling their business.',
@@ -29,11 +28,9 @@ export const metadata = {
     description: 'Personalized learning paths for non-technical founders scaling their business.',
     images: ['/api/og'],
   },
-};
+}
 
 export default function Home() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
   const faqItems = [
     {
       question: 'Do I need coding experience?',
@@ -51,7 +48,7 @@ export default function Home() {
       question: 'What topics are covered?',
       answer: 'APIs, databases, cloud infrastructure, hiring developers, tool evaluation, tech debt, customer data, security basics, and more.',
     },
-  ];
+  ]
 
   return (
     <div className="min-h-screen bg-white">
@@ -108,7 +105,7 @@ export default function Home() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="mt-1.5 w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center flex-shrink-0">
+                <div className="mt-1.5 w-5 h-2.5 rounded-full bg-teal-100 flex items-center justify-center flex-shrink-0">
                   <div className="w-2.5 h-2.5 rounded-full bg-teal-600"></div>
                 </div>
                 <div>
@@ -121,7 +118,10 @@ export default function Home() {
 
           {/* Right: Form */}
           <div className="sticky top-8">
-            <div id="waitlist" className="bg-gradient-to-br from-teal-50 to-teal-50 border border-teal-200 rounded-2xl p-8 space-y-6">
+            <div
+              id="waitlist"
+              className="bg-gradient-to-br from-teal-50 to-teal-50 border border-teal-200 rounded-2xl p-8 space-y-6"
+            >
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">Get Early Access</h2>
                 <p className="text-gray-600 text-sm">Join founders learning to make better tech decisions.</p>
@@ -140,7 +140,6 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {/* Step 1 */}
             <div className="bg-white border border-gray-200 rounded-xl p-8 space-y-4">
               <div className="text-teal-600 font-bold text-sm">Step 01</div>
               <h3 className="text-2xl font-bold text-gray-900">Personalize</h3>
@@ -149,7 +148,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Step 2 */}
             <div className="bg-white border border-gray-200 rounded-xl p-8 space-y-4">
               <div className="text-teal-600 font-bold text-sm">Step 02</div>
               <h3 className="text-2xl font-bold text-gray-900">Generate</h3>
@@ -158,7 +156,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Step 3 */}
             <div className="bg-white border border-gray-200 rounded-xl p-8 space-y-4">
               <div className="text-teal-600 font-bold text-sm">Step 03</div>
               <h3 className="text-2xl font-bold text-gray-900">Learn</h3>
@@ -187,7 +184,7 @@ export default function Home() {
           <div className="bg-white border border-gray-200 rounded-xl p-8 space-y-3">
             <h3 className="text-lg font-semibold text-gray-900">Focused on What Actually Matters</h3>
             <p className="text-gray-600 leading-relaxed">
-              You won't waste time on irrelevant concepts. Each module is designed around solving your specific challenges.
+              You won&apos;t waste time on irrelevant concepts. Each module is designed around solving your specific challenges.
             </p>
           </div>
 
@@ -207,7 +204,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* FAQ (server-friendly, no useState) */}
       <section className="border-t border-gray-200 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center mb-16">
@@ -216,26 +213,21 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {faqItems.map((item, index) => (
-              <div
+              <details
                 key={index}
-                className="border border-gray-300 rounded-xl overflow-hidden bg-white hover:border-teal-300 transition-colors"
+                className="group border border-gray-300 rounded-xl overflow-hidden bg-white hover:border-teal-300 transition-colors"
               >
-                <button
-                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full px-6 py-5 text-left font-semibold text-gray-900 hover:bg-gray-50 flex items-center justify-between"
-                >
+                <summary className="cursor-pointer list-none px-6 py-5 text-left font-semibold text-gray-900 hover:bg-gray-50 flex items-center justify-between">
                   <span className="text-base">{item.question}</span>
-                  <span className={`text-teal-600 text-xl flex-shrink-0 ml-4 transition-transform ${openFaq === index ? 'rotate-180' : ''}`}>
+                  <span className="text-teal-600 text-xl flex-shrink-0 ml-4 transition-transform group-open:rotate-180">
                     ▼
                   </span>
-                </button>
+                </summary>
 
-                {openFaq === index && (
-                  <div className="px-6 py-5 bg-gray-50 border-t border-gray-200">
-                    <p className="text-gray-700 leading-relaxed text-sm">{item.answer}</p>
-                  </div>
-                )}
-              </div>
+                <div className="px-6 py-5 bg-gray-50 border-t border-gray-200">
+                  <p className="text-gray-700 leading-relaxed text-sm">{item.answer}</p>
+                </div>
+              </details>
             ))}
           </div>
         </div>
@@ -247,13 +239,19 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <p className="text-gray-600 text-sm">TechDrops © 2026. All rights reserved.</p>
             <div className="flex gap-8 text-sm">
-              <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Privacy</a>
-              <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Terms</a>
-              <a href="mailto:hello@techdrops.com" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+              <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
+                Privacy
+              </a>
+              <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
+                Terms
+              </a>
+              <a href="mailto:hello@techdrops.com" className="text-gray-600 hover:text-gray-900 transition-colors">
+                Contact
+              </a>
             </div>
           </div>
         </div>
       </footer>
     </div>
-  );
+  )
 }
