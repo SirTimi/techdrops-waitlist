@@ -75,8 +75,8 @@ export default function Home() {
           <div className="space-y-8">
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Learn Tech.<br />
-                <span className="text-teal-600">Not Code.</span>
+                Learn Tech Without<br />
+                <span className="text-teal-600">Learning To Code.</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
                 Personalized learning paths designed for non-technical founders who need to make better decisions about technology.
@@ -175,7 +175,7 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-white border border-gray-200 rounded-xl p-8 space-y-3">
-            <h3 className="text-lg font-semibold text-gray-900">Built by Someone Who Understands Both Sides</h3>
+            <h3 className="text-lg font-semibold text-gray-900">Built For Someone Who Wants To Understand Both Sides</h3>
             <p className="text-gray-600 leading-relaxed">
               Every concept is explained through the lens of real business decisions: hiring developers, choosing tools, evaluating proposals, talking to investors.
             </p>
@@ -236,19 +236,8 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-center">
             <p className="text-gray-600 text-sm">TechDrops © 2026. All rights reserved.</p>
-            <div className="flex gap-8 text-sm">
-              <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Privacy
-              </a>
-              <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Terms
-              </a>
-              <a href="mailto:hello@techdrops.com" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Contact
-              </a>
-            </div>
           </div>
         </div>
       </footer>
