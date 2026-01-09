@@ -52,8 +52,8 @@ export default function Home() {
           <div className="space-y-8">
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Learn Tech.<br />
-                <span className="text-teal-600">Not Code.</span>
+                Learn Tech Without <br/>
+                <span className="text-teal-600"> Learning To Code.</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
                 Personalized learning paths designed for non-technical founders who need to make better decisions about technology.
